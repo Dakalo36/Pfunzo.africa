@@ -8,11 +8,11 @@ class User(db.Model):
     lastname = db.Column(db.String(25))
     age = db.Column(db.Integer)
     grade = db.Column(db.String(10))
-    school = db.Column(bd.String(50))
+    school = db.Column(db.String(50))
     password = db.Column(db.String(80))
 
-    def __init__(self, Id, firstname, lastname, age, grade, school, password):
-        self.Id = Id
+    def __init__(self, firstname, lastname, age, grade, school, password):
+        #self.Id = Id
         self.firstname = firstname
         self.lastname = lastname
         self.age = age
@@ -28,4 +28,4 @@ class User(db.Model):
     def is_anonymous(self):
         return False
     def get_id(self):
-        return str(self.email)
+        return str(self.Id)

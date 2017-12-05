@@ -8,8 +8,12 @@
     <h1>Sign-up</h1>
     <form method="POST" action="/signup">
         {{ form.hidden_tag() }}
-        {{ form.email.label }} {{ form.email(size=20) }}
-        {{ form.password.label }} {{ form.password(size=20) }}
+        {{ form.Firstname.label }} {{ form.Firstname(size=20) }}
+        {{ form.Firstname.label }} {{ form.Lastname(size=20) }}
+        {{ form.Age.label }} {{ form.Age(size=20) }}
+        {{ form.Grade.label }} {{ form.Grade(size=20) }}
+        {{ form.School.label }} {{ form.School(size=20) }}
+        {{ form.Password.label }} {{ form.Password(size=20) }}
         <input type="submit" value="Signup">
     </form>
 </body>
