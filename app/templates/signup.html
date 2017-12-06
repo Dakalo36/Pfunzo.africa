@@ -1,20 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign-up</title>
-</head>
-<body>
-    <h1>Sign-up</h1>
-    <form method="POST" action="/signup">
-        {{ form.hidden_tag() }}
-        {{ form.Firstname.label }} {{ form.Firstname(size=20) }}
-        {{ form.Firstname.label }} {{ form.Lastname(size=20) }}
-        {{ form.Age.label }} {{ form.Age(size=20) }}
-        {{ form.Grade.label }} {{ form.Grade(size=20) }}
-        {{ form.School.label }} {{ form.School(size=20) }}
-        {{ form.Password.label }} {{ form.Password(size=20) }}
-        <input type="submit" value="Signup">
-    </form>
-</body>
-</html>
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Sign-up
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<form method="POST" action="/signup">
+    <dl>
+    {{ form.hidden_tag() }}
+     
+    {{ wtf.form_field(form.Firstname) }}
+     
+    {{  wtf.form_field(form.Lastname) }}
+     
+    {{  wtf.form_field(form.Age) }}
+     
+    {{  wtf.form_field(form.Grade) }}
+    
+    {{  wtf.form_field(form.School) }}
+    
+    
+    {{  wtf.form_field(form.Password) }}
+    <input type="submit" value="Signup">
+    </dl>
+</form>
+</div>
+{% endblock %}

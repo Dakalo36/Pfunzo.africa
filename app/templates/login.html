@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form method="POST" action="/login">
-        {{ form.hidden_tag() }}
-        {{ form.Username.label }} {{ form.Username(size=20) }}
-        {{ form.Password.label }} {{ form.Password(size=20) }}
-        <input type="submit" value="login">
-    </form>
-</body>
-</html>
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Sign-in
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST" action="/login">
+            {{ form.hidden_tag() }}
+            
+            {{ wtf.form_field(form.Username) }}
+            
+            {{ wtf.form_field(form.Password)}}
+           
+            <input type="submit" value="login">
+        </form>
+    </div>
+{% endblock %}
+        

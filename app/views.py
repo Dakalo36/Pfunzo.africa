@@ -4,8 +4,10 @@ from .forms import SignupForm, LoginForm
 from .models import db, User
 from flask_login import LoginManager, login_user, login_required, logout_user
 
+
 login_manager = LoginManager()
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(firstname):
@@ -48,7 +50,7 @@ def login():
         return render_template('login.html', form=form)
     elif request.method == 'POST':
         if form.validate_on_submit():
-            user=User.query.filter_by(irstname=form.Firstname.data).first()
+            user=User.query.filter_by(firstname=form.Username.data).first()
             if user:
                 if user.password == form.Password.data:
                     login_user(user)
